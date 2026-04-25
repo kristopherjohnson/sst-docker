@@ -9,3 +9,7 @@ buildforwindows.txt
 Justfile
 Dockerfile
 .dockerignore
+README.md
+*~
+*.log
+*.swp
