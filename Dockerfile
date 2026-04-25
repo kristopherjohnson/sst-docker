@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1.7
-FROM alpine:3.20 AS builder
-RUN apk add --no-cache build-base
+FROM --platform=$BUILDPLATFORM alpine:3.20 AS builder
+RUN apk add --no-cache gcc make musl-dev binutils
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 WORKDIR /src
 COPY . .
 RUN make -f makefile CC="cc -static" && strip sst
