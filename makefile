@@ -9,10 +9,10 @@ OFILES=     sst.o finish.o reports.o setup.o osx.o moving.o battle.o events.o ai
 HFILES=     sst.h
 
 sst:  $(OFILES)
-	gcc  -o sst $(OFILES) -lm
+	$(CC)  -o sst $(OFILES) -lm
 
 clean:
 	rm $(OFILES)
-        
+
 $(OFILES):  $(HFILES)
 

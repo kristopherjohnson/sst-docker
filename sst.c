@@ -570,7 +570,11 @@ int scan(void) {
 		}
 //		gets(line);
 		// We should really be using fgets
-		fgets(line,sizeof(line),stdin);
+		if (fgets(line, sizeof(line), stdin) == NULL) {
+			// EOF on stdin (e.g., Ctrl-D) — terminate cleanly
+			putchar('\n');
+			exit(0);
+		}
 		if (line[strlen(line)-1] == '\n')
 			line[strlen(line)-1] = '\0';
 		linep = line;
@@ -677,6 +681,7 @@ void skip(int i) {
 
 void proutn(char *s) {
 	fputs(s, stdout);
+	fflush(stdout);
 }
 
 void prout(char *s) {

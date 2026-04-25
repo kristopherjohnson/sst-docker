@@ -1,0 +1,11 @@
+.git
+.gitignore
+.vscode
+.claude
+.DS_Store
+sst
+*.o
+buildforwindows.txt
+Justfile
+Dockerfile
+.dockerignore
